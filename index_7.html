@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Document</title>
+</head>
+<body>
+<div id="container">
+</div>
+<script>
+  var data = {
+      "Рыбы": {
+        "Форель": {},
+        "Щука": {}
+      },
+      "Деревья": {
+        "Хвойные": {
+          "Лиственница": {},
+          "Ель": {}
+        },
+        "Цветковые": {
+          "Берёза": {},
+          "Тополь": {}
+        }
+      }
+  };
+  var getList = function(data) {
+    var list = "";
+    for (var key in data) {
+        list += '<li>' + key;
+        var hasSubItems = Object.keys(data[key]).length > 0;
+
+        if (hasSubItems) {
+            list += getList(data[key]);
+        }
+
+        list += '</li>';
+    }
+    return '<ul>' + list + '</ul>';
+  };
+
+  var list = getList(data);
+  document.getElementById('container').innerHTML = list;
+</script>
+</body>
+</html>

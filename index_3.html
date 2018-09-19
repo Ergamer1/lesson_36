@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Document</title>
+  <script src="jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+  <script>
+    $(function() {
+      var init = function() {
+        var bgcolor = localStorage.getItem('bgcolor');
+        if (bgcolor) {
+          setBodyBgColor(bgcolor);
+          $('input[name="color"]').val(bgcolor);
+        }
+      };
+      var setBodyBgColor = function(bgcolor) {
+        $('body').css('background-color', bgcolor);
+      };
+
+      $('input[name="color"]').on('change', function() {
+        var bgcolor = $(this).val();
+        setBodyBgColor(bgcolor);
+        localStorage.setItem('bgcolor', bgcolor);
+      });
+
+      init();
+    });
+
+  </script>
+</head>
+<body>
+  <label>select a color: <input type="text" name="color"/></label>
+</body>
+</html>

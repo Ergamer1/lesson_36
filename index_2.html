@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Document</title>
+  <script src="jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+  <script>
+    $(function(){
+      $('.show-comments').on('click', function(event) {
+        console.log('Some link was clicked');
+        console.log(this.tagName);
+      });
+    });
+  </script>
+</head>
+<body>
+  <a class="show-comments" href="#1"><span>Show comments for post 1</span></a></br>
+  <a class="show-comments" href="#2">Show comments for post 2</a></br>
+  <a class="show-comments" href="#3">Show comments for post 3</a></br>
+  <a class="show-comments" href="#4">Show comments for post 4</a></br>
+</body>
+</html>
